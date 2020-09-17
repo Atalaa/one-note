@@ -1,0 +1,18 @@
+@import url('https://fonts.googleapis.com/css2?family=McLaren&family=Montserrat+Alternates&display=swap');
+
+$font-1: 'McLaren', cursive;
+$font-2: 'Montserrat Alternates', sans-serif;
+
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: $font-2;
+  background: #eee;
+  padding: 0 16px;
+}

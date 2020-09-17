@@ -1,16 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Header from './components/Header';
+import Note from './components/Note';
+import Footer from './components/Footer';
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-      Hello world
-
-      </header>
+    <div>
+      <Header />
+      <Note />
+      <Footer />
     </div>
   );
-}
+};
 
 export default App;
