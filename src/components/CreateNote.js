@@ -19,6 +19,7 @@ const CreateNote = () => {
 
   const submitNote = (e) => {
     e.preventDefault(); 
+    
   }
 
 

@@ -3,7 +3,6 @@ import Header from './components/Header';
 import Note from './components/Note';
 import Footer from './components/Footer';
 import CreateNote from './components/CreateNote'
-import notes from './data/notes';
 
 const App = () => {
   return (
