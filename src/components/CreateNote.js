@@ -1,8 +1,9 @@
 import React from 'react';
 import { useState } from 'react';
 
-const CreateNote = () => {
-  const [note,setNote] = useState({
+const CreateNote = (props) => {
+  
+  const [note,setNote] = useState({ //note object
     title: "",
     content: ""
   });
@@ -18,8 +19,8 @@ const CreateNote = () => {
   }
 
   const submitNote = (e) => {
-    e.preventDefault(); 
-    
+    props.onAdd(note);
+    e.preventDefault();     
   }
 
 
