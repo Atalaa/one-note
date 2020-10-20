@@ -12,15 +12,20 @@ const CreateNote = (props) => {
     const {name, value} = e.target;
 
     setNote(prevNote => {
-      return {
-        ...prevNote, [name]: value
+      return { //new object
+        ...prevNote, 
+        [name]: value //add new value at the end 
       };
     });
   }
 
   const submitNote = (e) => {
+    e.preventDefault();
     props.onAdd(note);
-    e.preventDefault();     
+    setNote({
+      title: "", 
+      content:""
+    });
   }
 
 
@@ -42,7 +47,9 @@ const CreateNote = (props) => {
           rows="3" 
         />
 
-        <button onClick={submitNote}>Add</button>
+        <button onClick={submitNote}>
+          Add
+        </button>
       </form>
     </div>
   );

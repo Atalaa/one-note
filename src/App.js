@@ -10,18 +10,37 @@ const App = () => {
 
   const addNote = (newNote) => {
     setNotes(prevNotes => {
-      return [...prevNotes, newNote];
+      return [
+        ...prevNotes, 
+        newNote //add new note at the end
+      ];
     });
   }
+
+  const deleteNote = (id) => {
+    setNotes(prevNotes => {
+      return prevNotes.filter((currentItem, index) => {
+        return index !== id;
+      })
+    });
+  };
 
   return (
     <div>
       <Header />
-      <CreateNote onAdd={addNote}/>
+      <CreateNote 
+        onAdd={addNote}
+      />
       {
-        notes.map(noteItem => {
+        notes.map((noteItem, index) => {
           return (
-            <Note title={noteItem.title} content={noteItem.content}/>    
+            <Note 
+              key={index} 
+              id={index} 
+              title={noteItem.title} 
+              content={noteItem.content}
+              onDelete={deleteNote}
+              />    
           )
         })
       }
