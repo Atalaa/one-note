@@ -14,7 +14,7 @@ const CreateNote = (props) => {
     setNote(prevNote => {
       return { //new object
         ...prevNote, 
-        [name]: value //add new value at the end 
+        [name]: value //add new value/element at the end 
       };
     });
   }

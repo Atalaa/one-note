@@ -12,7 +12,7 @@ const App = () => {
     setNotes(prevNotes => {
       return [
         ...prevNotes, 
-        newNote //add new note at the end
+        newNote //add new note/element at the end
       ];
     });
   }
