@@ -4,11 +4,11 @@ $font-1: 'McLaren', cursive;
 $font-2: 'Montserrat Alternates', sans-serif;
 
 * {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
-  margin: 0;
-  padding: 0;
 }
 
 body {

@@ -1,5 +1,8 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { useState } from 'react';
+import AddRoundedIcon from '@material-ui/icons/AddRounded';
+import { Fab, Zoom } from '@material-ui/core';
+
+
 
 const CreateNote = (props) => {
   
@@ -8,9 +11,10 @@ const CreateNote = (props) => {
     content: ""
   });
 
+  const [expandedArea, setExpandedArea] = useState(false);
+
   const handleChange = (e) => {
     const {name, value} = e.target;
-
     setNote(prevNote => {
       return { //new object
         ...prevNote, 
@@ -19,8 +23,13 @@ const CreateNote = (props) => {
     });
   }
 
+  const handleExpansion = () => {
+    setExpandedArea(true);
+  }
+
   const submitNote = (e) => {
     e.preventDefault();
+    //handle if note is empty and click add
     props.onAdd(note);
     setNote({
       title: "", 
@@ -31,25 +40,32 @@ const CreateNote = (props) => {
 
   return (
     <div>
-      <form>
-        <input 
-          name="title" 
-          onChange={handleChange} 
-          value={note.title} 
-          placeholder="Title" 
-        />
+      <form className="create-note">
+
+        {
+          expandedArea &&
+          <input 
+            name="title" 
+            onChange={handleChange} 
+            value={note.title} 
+            placeholder="Title" 
+          />
+        }
 
         <textarea 
           name="content" 
           onChange={handleChange} 
+          onClick={handleExpansion}
           value={note.content} 
           placeholder="Take a note..." 
-          rows="3" 
+          rows={expandedArea ? 3 : 1} 
         />
 
-        <button onClick={submitNote}>
-          Add
-        </button>
+        <Zoom in={expandedArea}>
+          <Fab onClick={submitNote}>
+            <AddRoundedIcon />
+          </Fab>
+        </Zoom>
       </form>
     </div>
   );
