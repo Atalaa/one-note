@@ -4,7 +4,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
   return (
     <footer className="footer">
-      <p>Copyright ⓒ {currentYear}</p>
+      <p>Aata-allah Rchidi - {currentYear}</p>
     </footer>
   );
 };

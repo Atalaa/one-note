@@ -4,15 +4,16 @@ $font-1: 'McLaren', cursive;
 $font-2: 'Montserrat Alternates', sans-serif;
 
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
   font-family: $font-2;
   background: #eee;
-  padding: 0 16px;
+  background-image: url("https://www.transparenttextures.com/patterns/brick-wall-dark.png");  
+  overflow: hidden;
 }

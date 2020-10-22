@@ -42,24 +42,25 @@ const CreateNote = (props) => {
     <div>
       <form className="create-note">
 
+        <input 
+          name="title" 
+          onClick={handleExpansion}
+          onChange={handleChange} 
+          value={note.title} 
+          placeholder="Title" 
+        />
+        
         {
           expandedArea &&
-          <input 
-            name="title" 
+          <textarea 
+            name="content" 
             onChange={handleChange} 
-            value={note.title} 
-            placeholder="Title" 
+            value={note.content} 
+            placeholder="Take a note..." 
+            rows="3"
           />
         }
-
-        <textarea 
-          name="content" 
-          onChange={handleChange} 
-          onClick={handleExpansion}
-          value={note.content} 
-          placeholder="Take a note..." 
-          rows={expandedArea ? 3 : 1} 
-        />
+          
 
         <Zoom in={expandedArea}>
           <Fab onClick={submitNote}>
