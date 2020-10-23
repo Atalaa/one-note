@@ -7,7 +7,7 @@ import CreateNote from './components/CreateNote'
 const App = () => {
 
   const [notes, setNotes] = useState([]);
-
+  
   const addNote = (newNote) => {
     setNotes(prevNotes => {
       return [
@@ -28,7 +28,11 @@ const App = () => {
   return (
     <div>
       <Header />
-      <CreateNote onAdd={addNote} />
+      <CreateNote 
+        onAdd={addNote} 
+        maxNotes={notes}
+        />
+        
       <div className="container">
         {
           notes.map((noteItem, index) => {

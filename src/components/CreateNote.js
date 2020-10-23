@@ -30,10 +30,12 @@ const CreateNote = (props) => {
 
   const submitNote = (e) => {
     e.preventDefault();
-
     if(note.title === "" && note.content === ""){
       return;
     }
+    if(props.maxNotes.length >= 15){
+        return;
+    }    
     props.onAdd(note);
     setNote({
       title: "", 
@@ -47,6 +49,8 @@ const CreateNote = (props) => {
       <form onSubmit={submitNote} className="create-note">
 
         <input 
+          type="text"
+          maxLength = "15"
           name="title" 
           onClick={handleExpansion}
           onChange={handleChange} 
@@ -62,6 +66,7 @@ const CreateNote = (props) => {
             value={note.content} 
             placeholder="Take a note..." 
             rows="3"
+            maxlength="100"
           />
         }
 
