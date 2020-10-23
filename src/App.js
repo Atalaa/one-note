@@ -28,22 +28,22 @@ const App = () => {
   return (
     <div>
       <Header />
-      <CreateNote 
-        onAdd={addNote}
-      />
-      {
-        notes.map((noteItem, index) => {
-          return (
-            <Note 
-              key={index} 
-              id={index} 
-              title={noteItem.title} 
-              content={noteItem.content}
-              onDelete={deleteNote}
-              />    
-          )
-        })
-      }
+      <CreateNote onAdd={addNote} />
+      <div className="container">
+        {
+          notes.map((noteItem, index) => {
+            return (
+              <Note 
+                key={index} 
+                id={index} 
+                title={noteItem.title} 
+                content={noteItem.content}
+                onDelete={deleteNote}
+                />    
+            )
+          })
+        }
+      </div>
       <Footer />
     </div>
   );

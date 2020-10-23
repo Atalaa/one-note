@@ -13,6 +13,7 @@ const CreateNote = (props) => {
 
   const [expandedArea, setExpandedArea] = useState(false);
 
+  // e is the event object passed into the event handler
   const handleChange = (e) => {
     const {name, value} = e.target;
     setNote(prevNote => {
@@ -29,7 +30,10 @@ const CreateNote = (props) => {
 
   const submitNote = (e) => {
     e.preventDefault();
-    //handle if note is empty and click add
+
+    if(note.title === "" && note.content === ""){
+      return;
+    }
     props.onAdd(note);
     setNote({
       title: "", 
@@ -40,7 +44,7 @@ const CreateNote = (props) => {
 
   return (
     <div>
-      <form className="create-note">
+      <form onSubmit={submitNote} className="create-note">
 
         <input 
           name="title" 
@@ -60,10 +64,9 @@ const CreateNote = (props) => {
             rows="3"
           />
         }
-          
 
         <Zoom in={expandedArea}>
-          <Fab onClick={submitNote}>
+          <Fab type="submit">
             <AddRoundedIcon />
           </Fab>
         </Zoom>
