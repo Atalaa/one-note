@@ -32,22 +32,20 @@ const App = () => {
         onAdd={addNote} 
         maxNotes={notes}
         />
-        
-      <div className="container">
-        {
-          notes.map((noteItem, index) => {
-            return (
-              <Note 
-                key={index} 
-                id={index} 
-                title={noteItem.title} 
-                content={noteItem.content}
-                onDelete={deleteNote}
-                />    
-            )
-          })
-        }
-      </div>
+
+      {
+        notes.map((noteItem, index) => {
+          return (
+            <Note 
+              key={index} 
+              id={index} 
+              title={noteItem.title} 
+              content={noteItem.content}
+              onDelete={deleteNote}
+              />    
+          )
+        })
+      }
       <Footer />
     </div>
   );

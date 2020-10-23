@@ -33,7 +33,7 @@ const CreateNote = (props) => {
     if(note.title === "" && note.content === ""){
       return;
     }
-    if(props.maxNotes.length >= 15){
+    if(props.maxNotes.length >= 10){
         return;
     }    
     props.onAdd(note);
