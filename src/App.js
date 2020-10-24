@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import Header from './components/Header';
 import Note from './components/Note';
-import Footer from './components/Footer';
 import CreateNote from './components/CreateNote'
 
 const App = () => {
@@ -33,6 +32,7 @@ const App = () => {
         maxNotes={notes}
         />
 
+      <div>
       {
         notes.map((noteItem, index) => {
           return (
@@ -46,7 +46,7 @@ const App = () => {
           )
         })
       }
-      <Footer />
+      </div>
     </div>
   );
 };

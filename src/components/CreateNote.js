@@ -33,7 +33,7 @@ const CreateNote = (props) => {
     if(note.title === "" && note.content === ""){
       return;
     }
-    if(props.maxNotes.length >= 10){
+    if(props.maxNotes.length >= 11){
         return;
     }    
     props.onAdd(note);
@@ -49,24 +49,24 @@ const CreateNote = (props) => {
       <form onSubmit={submitNote} className="create-note">
 
         <input 
-          type="text"
           maxLength = "15"
+          type="text"
           name="title" 
+          value={note.title}
+          placeholder="Title"
           onClick={handleExpansion}
           onChange={handleChange} 
-          value={note.title} 
-          placeholder="Title" 
         />
         
         {
           expandedArea &&
           <textarea 
+            maxlength="100"
             name="content" 
             onChange={handleChange} 
             value={note.content} 
             placeholder="Take a note..." 
             rows="3"
-            maxlength="100"
           />
         }
 
