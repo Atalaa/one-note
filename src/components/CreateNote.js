@@ -30,9 +30,12 @@ const CreateNote = (props) => {
 
   const submitNote = (e) => {
     e.preventDefault();
-    if(note.title === "" && note.content === ""){
+
+    if( (!note.title || /^\s*$/.test(note.title)) &&
+        (!note.content || /^\s*$/.test(note.content)) ) { //avoid space typing
       return;
     }
+
     if(props.maxNotes.length >= 11){
         return;
     }    
